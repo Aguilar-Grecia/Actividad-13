@@ -39,5 +39,20 @@ class Empresa:
         if len(self.repartidores) == 0:
             print("No hay datos registrados no se pueden mostrar estadisticas.")
             return
+        total = sum(i.paquetes for i in self.repartidores)
+        promedio = total/len(self.repartidores)
+        maximo_paquetes = max(i.paquetes for i in self.repartidores)
+        minimo_paquetes = min(i.paquetes for i in self.repartidores)
+        mayores = [i.nombre for i in self.repartidores if i.paquetes == maximo_paquetes]
+        menores = [i.nombre for i in self.repartidores if i.paquetes == minimo_paquetes]
+        print(f"\n---ESTADISTICA---")
+        print(f"Total de paquetes: {total}")
+        print(f"Promedio de paquetes: {promedio}")
+        print(f"Mayor número de entregas: ")
+        for i in mayores:
+            print(f"{i.nombre}  ({i.paquetes})")
+        print(f"Menor número de entregas: ")
+        for i in menores:
+            print(f"{i.nombre}  ({i.paquetes})")
 
 
