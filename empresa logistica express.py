@@ -24,4 +24,20 @@ class Empresa:
         iguales = [x for x in lista if x.paquetes == pivote.paquetes]
         menores = [x for x in lista[1:] if x.paquetes  <  pivote.paquetes]
 
-        return quick_sort(menores) + iguales + quick_sort(mayores)
+        return self.quick_sort(mayores) + [pivote] + self.quick_sort(menores)
+    def ordenar_paquetes(self):
+        self.repartidores= self.quick_sort(self.repartidores)
+    def buscar_repartidor(self,nombre):
+        for i in self.repartidores:
+            if i.nombre == nombre:
+                return i
+        return None
+    def mostrar_ranking(self):
+        for i in self.repartidores:
+            print(f"{i.nombre} - {i.paquetes} paquetes - zona: {i.zona}")
+    def estadistica(self):
+        if len(self.repartidores) == 0:
+            print("No hay datos registrados no se pueden mostrar estadisticas.")
+            return
+
+
