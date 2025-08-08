@@ -55,4 +55,24 @@ class Empresa:
         for i in menores:
             print(f"{i.nombre}  ({i.paquetes})")
 
+empresa = Empresa()
+n = int(input("Cantidad de repartidores: "))
+for i in range (n):
+    print(f"\nIngrese los datos de repartidores {i+1}: ")
+    nombre = input("Ingrese el nombre: ")
+    paquetes = input("Ingrese los paquetes: ")
+    zona = input("Ingrese el zona: ")
+    empresa.agregar_repartidor(Repartidor(nombre, paquetes, zona))
 
+print("\n---LISTA ORIGINAL---")
+empresa.mostrar_ranking()
+empresa.ordenar_paquetes()
+print("\n---RANKING---")
+empresa.mostrar_ranking()
+nombre_buscar = input("\nBuscar repartidor: ")
+encontrado= empresa.buscar_repartidor(nombre_buscar)
+if encontrado:
+    print(f"{encontrado.nombre} - {encontrado.paquetes} paquetes - Zona: {encontrado.zona}")
+else:
+    print("Lo siento no se encontro al repartidor.")
+empresa.estadistica()
