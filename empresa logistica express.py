@@ -6,12 +6,13 @@ class Repartidor:
 class Empresa:
     def __init__(self):
         self.repartidores = []
+
     def agregar_repartidor(self, repartidor):
         for i in self.repartidores:
             if i.nombre == repartidor.nombre:
                 print(f"El nombre del repartidor es '{repartidor.nombre}' ya existe")
                 return False
-        if repartidor.nombre == ¨   or repartidor.paquetes <= 0 or repartior.zona =="":
+        if repartidor.nombre == "" or repartidor.paquetes <= 0 or repartidor.zona =="":
             print("El nombre del repartidor es invalido. No es posible agregar.")
             return False
         self.repartidores.append(repartidor)
